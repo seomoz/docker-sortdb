@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ -z "$SORTDB_CSV" ]] ; then
+    SORTDB_CSV="data.csv"
+fi
+if [[ -z "$SORTDB_DELIM" ]] ; then
+    SORTDB_DELIM=","
+fi
+if [[ -z "$SORTDB_PORT" ]] ; then
+    SORTDB_PORT="8080"
+fi
+
+/opt/bin/sortdb -db-file="/var/lib/sortdb/$SORTDB_CSV" -field-separator="$SORTDB_DELIM" -http-address=":$SORTDB_PORT"
